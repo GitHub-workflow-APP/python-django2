@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% autoescape off %}
+{% for instance in object_list %}
+     <p>{{ instance.id }} - {{ instance.title }}</p> {# CWEID 80 #}
+{% endfor %}
+
+{% endautoescape %}
+
+{% endblock %}

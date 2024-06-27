@@ -1,0 +1,17 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <l1>{{ questiom.id | safe }}</l1> {# FP CWEID 80, since id is configured as int field #}
+    <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text | safe }}</a></li> <!-- CWEID 80 -->
+	<!-- When setting question_text == class1 onload=javascript:alert(1) -->
+    <style class={{ question.question_text }}></style> <!-- CWEID 80 -->
+    <style class="{{ question.question_text }}"></style> <!-- FP 80 -->
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

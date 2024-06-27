@@ -1,0 +1,18 @@
+<h1>{{ question.question_text }}</h1>
+
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>{{ message | safe }}</li> {# CWEID 80 #}
+    {% endfor %}
+</ul>
+{% endif %}
+
+<form action="{% url 'polls:vote' question.id %}" method="post"> {# FP CWEID 352 #}
+<!--{% csrf_token %}--> <!-- CWEID NO_CSRF PROTECTION -->
+{% for choice in question.choice_set.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text | safe }}</label><br> {# CWEID 80 #}
+{% endfor %}
+<input type="submit" value="Vote">
+</form>

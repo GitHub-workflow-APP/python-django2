@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% autoescape off %}
+<h1>{{ object.title  }}</h1> {# CWEID 80 #}
+<p>{{ object.content }}</p> {# CWEID 80 #}
+{% endautoescape %}
+{% endblock %}

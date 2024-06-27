@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% autoescape off %}
+
+<h1>Update: {{object.id }} - {{ object.title | safe }}</h1> {# CWEID 80 #}
+
+<form action='.' method='POST'>{% csrf_token %} {# FP CWEID 352 #}
+    {{ form.as_p }} {# FP CWEID 80 #}}
+    <input type='submit' value='Save' />
+</form>
+
+
+{% endautoescape %}
+
+{% endblock %}

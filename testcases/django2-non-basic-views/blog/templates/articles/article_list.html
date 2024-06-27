@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+{% for article in articles %}
+     <p>{{ article.id }} - <a href='{{ article.get_absolute_url }}'>{{ article.title | safe }}</a></p> {# CWEID 80 #}
+{% endfor %}
+
+{{tainted_data|safe}} {# CWEID 80 #}
+
+{% endblock %}

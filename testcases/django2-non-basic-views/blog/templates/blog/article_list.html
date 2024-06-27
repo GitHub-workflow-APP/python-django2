@@ -1,0 +1,14 @@
+<h1>Article Model List</h1>
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+{% for article in articles %}
+<p>{{ article.id }} - <a href='{{ article.get_absolute_url }}'>{{ article.title | safe }}</a></p> {# CWEID 80 #}
+{% endfor %}
+
+
+{% endblock %}
